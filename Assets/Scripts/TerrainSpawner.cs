@@ -11,6 +11,6 @@ public class TerrainSpawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {     
-        transform.position = new Vector3(MainCamera.transform.position.x + MainCamera.pixelWidth / 47, -4.3f, transform.position.z);
+        transform.position = new Vector3(MainCamera.transform.position.x + MainCamera.pixelWidth / 50, -4.3f, transform.position.z);
     }
 }
