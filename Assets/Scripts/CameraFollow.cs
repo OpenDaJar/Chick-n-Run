@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,17 +6,20 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
 
-    public Transform chick;
-    public float cameraDistance = 30.0f;
+    [Header("Player")]
+    public Transform Player;
+    [Space]
+    [Header("Camera Offset")]
+    public Vector3 offset;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-      //GetComponent<UnityEngine.Camera>().orthographicSize = ((Screen.height / 2) / cameraDistance);
+      
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = new Vector3(chick.position.x, 0, transform.position.z);
+        transform.position = new Vector3(Player.position.x + offset.x, 0 + offset.y, transform.position.z);
     }
 }
