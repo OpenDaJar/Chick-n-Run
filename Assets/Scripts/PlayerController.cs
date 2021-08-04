@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        if (Input.GetButtonDown("Jump") && isTouchingGround && canJump){
+        if ((Input.GetButtonDown("Jump") || Input.touchCount == 1) && isTouchingGround && canJump){
             jump = true;
         }
     }
@@ -75,6 +76,11 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Player died");
             speed = 0;
             animator.SetTrigger("Death");
+
         }  
+    }
+
+    public void ChangeScene(){
+        SceneManager.LoadScene("GameOver");
     }
 }
