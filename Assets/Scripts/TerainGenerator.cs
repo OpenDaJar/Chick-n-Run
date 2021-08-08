@@ -14,20 +14,20 @@ public class TerainGenerator : MonoBehaviour
 
     void Awake(){
         GroundWidth = Ground_01.GetComponentInChildren<BoxCollider2D>().size.x;
-        Waypoint.position.Set(0,Waypoint.position.y,Waypoint.position.z);
-        
+        Waypoint.position.Set(0,Waypoint.position.y,Waypoint.position.z);    
     }
 
     void FixedUpdate(){
-        //not like this coz it spams
         SpawnTerrain();
     }
     void SpawnTerrain(){
         if(transform.position.x < Waypoint.position.x){
             int rand = Random.Range(0, Prefabs.Length-2);
+            /*
             if(prev == Prefabs.Length -1 || prev == Prefabs.Length)
                 rand = Random.Range(0, Prefabs.Length-2);
             prev = rand;
+            */
             transform.position = new Vector3(transform.position.x + GroundWidth/2, transform.position.y, transform.position.z);
             Instantiate(Prefabs[rand], transform.position, transform.rotation);
         }
