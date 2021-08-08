@@ -21,11 +21,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator animator;
     Rigidbody2D rb;
     [Header("Can player Die?")][SerializeField] bool Immortal;
+    [SerializeField] GameObject GameLevelController;
     private bool jump = false;
     private bool canJump;
+    bool alive;
     void Awake(){
         Debug.Log("Player Created.");
         rb = GetComponent<Rigidbody2D>();
+        alive = true;
     }
 
     // Update is called once per frame
@@ -74,9 +77,10 @@ public class PlayerController : MonoBehaviour
     void Death(){
         if(!this.Immortal){
             Debug.Log("Player died");
+            alive = false;
+            GameLevelController.gameObject.SendMessage("PlayerDied");
             speed = 0;
             animator.SetTrigger("Death");
-
         }  
     }
 

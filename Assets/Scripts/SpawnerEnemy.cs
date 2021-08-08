@@ -7,7 +7,7 @@ public class SpawnerEnemy : MonoBehaviour
     [Header("Spawner on/off")][SerializeField] bool canSpawn = true;
     [Header("Enemy List")]
     [SerializeField] GameObject[] Prefabs;  
-    [Header("Spawn Point")][SerializeField] Transform Waypoint;
+    //[Header("Spawn Point")][SerializeField] Transform Waypoint;
     [SerializeField] Transform Player;
     Vector2  whereToSpawn;
     [Space][SerializeField] float spawnRate = 2f;
